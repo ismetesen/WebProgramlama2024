@@ -1,4 +1,8 @@
+using BarberApplication.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
+namespace BarberApplication.Controllers
 {
     public class HomeController : Controller
     {
