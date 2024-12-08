@@ -1,8 +1,4 @@
-using dfkshbnsdlf.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
-namespace dfkshbnsdlf.Controllers
 {
     public class HomeController : Controller
     {
