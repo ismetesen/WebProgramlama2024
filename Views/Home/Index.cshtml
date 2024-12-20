@@ -3,6 +3,23 @@
 }
 
 <div class="text-center">
+    @if (HttpContext.Session.GetString("UserName") != null)
+    {
+        <p>Hoşgeldiniz, @HttpContext.Session.GetString("UserName")</p>
+        <a href="/Account/Logout">Çıkış</a>
+        @if (HttpContext.Session.GetString("UserRole") == "Admin")
+        {
+            <a href="/Admin/Index">Admin Paneli</a>
+        }
+    }
+    else
+    {
+        <a href="/Account/Login">Giriş Yap</a>
+    }
+
+    <div>
+        @RenderBody()
+    </div>
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
