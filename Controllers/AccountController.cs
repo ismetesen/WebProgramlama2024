@@ -1,13 +1,14 @@
 ﻿using BarberApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace BarberApplication.Controllers
 {
     public class AccountController : Controller
     {
         public IActionResult Login()
-        {
+        {   
             return View();
         }
 

@@ -9,6 +9,6 @@
         public int TotalAppointments { get; set; } // Number of appointments
         public decimal EfficiencyScore { get; set; } // Example: TotalIncome / TotalAppointments
 
-        public Employee Employee { get; set; } // Navigation property
+        public Employee Employee { get; set; } // Navigation property
     }
 }
