@@ -8,6 +8,9 @@
         public string PasswordHash { get; set; }
         public string? PhoneNumber { get; set; } // Optional
         public DateTime RegistrationDate { get; set; }
-        public string Role { get; set; } // Example: "User", "Admin"
+        public string Role { get; set; } // Example: "User", "Admin"
+
+        // Randevu ilişkileri
+        public ICollection<Appointment> Appointments { get; set; } // One-to-Many relationship
     }
 }
