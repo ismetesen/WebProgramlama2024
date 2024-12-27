@@ -1,8 +1,7 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <main>
     <!--? Hero Start -->
     <div class="slider-area2">
@@ -26,7 +25,7 @@
                 <div class="col-lg-6 col-md-11">
                     <!-- about-img -->
                     <div class="about-img ">
-                        <img src="assets/img/gallery/about.png" alt="">
+                        <img src="~/assets/img/gallery/about.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -38,14 +37,14 @@
                         </div>
                         <p class="mb-30 pera-bottom">Brook presents your services with flexible, convenient and cdpoe layouts. You can select your favorite layouts & elements for cular ts with unlimited ustomization possibilities. Pixel-perfreplication of the designers is intended.</p>
                         <p class="pera-top mb-50">Brook presents your services with flexible, convefnient and ent anipurpose layouts. You can select your favorite.</p>
-                        <img src="assets/img/gallery/signature.png" alt="">
+                        <img src="~/assets/img/gallery/signature.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
         <!-- About Shape -->
         <div class="about-shape">
-            <img src="assets/img/gallery/about-shape.png" alt="">
+            <img src="~/assets/img/gallery/about-shape.png" alt="">
         </div>
     </section>
     <!-- About-2 Area End -->
@@ -117,7 +116,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
                     <div class="single-team mb-80 text-center">
                         <div class="team-img">
-                            <img src="assets/img/gallery/team1.png" alt="">
+                            <img src="~/assets/img/gallery/team1.png" alt="">
                         </div>
                         <div class="team-caption">
                             <span>Master Barber</span>
@@ -128,7 +127,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
                     <div class="single-team mb-80 text-center">
                         <div class="team-img">
-                            <img src="assets/img/gallery/team2.png" alt="">
+                            <img src="~/assets/img/gallery/team2.png" alt="">
                         </div>
                         <div class="team-caption">
                             <span>Color Expart</span>
@@ -139,18 +138,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
                     <div class="single-team mb-80 text-center">
                         <div class="team-img">
-                            <img src="assets/img/gallery/team3.png" alt="">
-                        </div>
-                        <div class="team-caption">
-                            <span>Master Barber</span>
-                            <h3><a href="#">Edgar P. Mathis</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
-                    <div class="single-team mb-80 text-center">
-                        <div class="team-img">
-                            <img src="assets/img/gallery/team2.png" alt="">
+                            <img src="~/assets/img/gallery/team3.png" alt="">
                         </div>
                         <div class="team-caption">
                             <span>Master Barber</span>
@@ -178,23 +166,6 @@
                                 <ul>
                                     <li>Styling. . . . . . . . . . . . . . . . . . . . . . . . . . . . <span>$25</span></li>
                                     <li>Styling + Color. . . . . . . . . . . . . . . . . . . <span>$65</span></li>
-                                    <li>Styling + Tint. . . . . . . . . . . . . . . . . . . . . .<span>$65</span></li>
-                                    <li>  Semi-permanent wave. . . . . . . . . . . . .<span>$65</span></li>
-                                    <li> Cut + Styling. . . . . . . . . . . . . . . . . . . . . .<span>$63</span></li>
-                                    <li> Cut + Styling + Color. . . . . . . . . . . . . <span>$100</span></li>
-                                    <li> Cut + Styling + Tint. . . . . . . . . . . . . . . .<span>$100</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="pricing-list">
-                                <ul>
-                                    <li>Cut. . . . . . . . . . . . . . . . . . . . . . . . . . . . .<span>$25</span></li>
-                                    <li>Shave. . . . . . . . . . . . . . . . . . . . . . . . . . <span>$65</span></li>
-                                    <li>Beard trim. . . . . . . . . . . . . . . . . . . . . .  <span>$65</span></li>
-                                    <li>Cut + beard trim. . . . . . . . . . . . . . . . .  <span>$65</span></li>
-                                    <li>Cut + shave. . . . . . . . . . . . . . . . . . . . . . .<span>$63</span></li>
-                                    <li>Clean up. . . . . . . . . . . . . . . . . . . . . . . . .<span>$100</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -204,52 +175,9 @@
         </div>
         <!-- pricing img -->
         <div class="pricing-img">
-            <img class="pricing-img1" src="assets/img/gallery/pricing1.png" alt="">
-            <img class="pricing-img2" src="assets/img/gallery/pricing2.png" alt="">
+            <img class="pricing-img1" src="~/assets/img/gallery/pricing1.png" alt="">
+            <img class="pricing-img2" src="~/assets/img/gallery/pricing2.png" alt="">
         </div>
     </div>
     <!-- Best Pricing Area End -->
-    <!--? Gallery Area Start -->
-    <div class="gallery-area section-padding30">
-        <div class="container">
-            <!-- Section Tittle -->
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-7 col-md-9 col-sm-10">
-                    <div class="section-tittle text-center mb-100">
-                        <span>our image gellary</span>
-                        <h2>some images from our barber shop</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="box snake mb-30">
-                        <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery1.png);"></div>
-                        <div class="overlay"></div>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-6 col-sm-6">
-                    <div class="box snake mb-30">
-                        <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery2.png);"></div>
-                        <div class="overlay"></div>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-6 col-sm-6">
-                    <div class="box snake mb-30">
-                        <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery3.png);"></div>
-                        <div class="overlay"></div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="box snake mb-30">
-                        <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery4.png);"></div>
-                        <div class="overlay"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Gallery Area End -->
-
-
 </main>

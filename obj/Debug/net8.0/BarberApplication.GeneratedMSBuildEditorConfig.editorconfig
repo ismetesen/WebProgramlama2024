@@ -17,61 +17,59 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BarberApplication
 build_property.RootNamespace = BarberApplication
-build_property.ProjectDir = C:\Users\binad\source\repos\webbb\
+build_property.ProjectDir = C:\Users\zedis\source\repos\BaberAppv2\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\binad\source\repos\webbb
+build_property.MSBuildProjectDirectory = C:\Users\zedis\source\repos\BaberAppv2
 build_property._RazorSourceGeneratorDebug = 
-build_property.EffectiveAnalysisLevelStyle = 8.0
-build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/binad/source/repos/webbb/Views/Account/Login.cshtml]
+[C:/Users/zedis/source/repos/BaberAppv2/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binad/source/repos/webbb/Views/Home/About.cshtml]
+[C:/Users/zedis/source/repos/BaberAppv2/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binad/source/repos/webbb/Views/Home/Contact.cshtml]
+[C:/Users/zedis/source/repos/BaberAppv2/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binad/source/repos/webbb/Views/Home/Index.cshtml]
+[C:/Users/zedis/source/repos/BaberAppv2/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binad/source/repos/webbb/Views/Home/Login.cshtml]
+[C:/Users/zedis/source/repos/BaberAppv2/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binad/source/repos/webbb/Views/Home/Portfolio.cshtml]
+[C:/Users/zedis/source/repos/BaberAppv2/Views/Home/Portfolio.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQb3J0Zm9saW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binad/source/repos/webbb/Views/Home/Services.cshtml]
+[C:/Users/zedis/source/repos/BaberAppv2/Views/Home/Services.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZXJ2aWNlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binad/source/repos/webbb/Views/Shared/Error.cshtml]
+[C:/Users/zedis/source/repos/BaberAppv2/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binad/source/repos/webbb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/zedis/source/repos/BaberAppv2/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binad/source/repos/webbb/Views/_ViewImports.cshtml]
+[C:/Users/zedis/source/repos/BaberAppv2/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binad/source/repos/webbb/Views/_ViewStart.cshtml]
+[C:/Users/zedis/source/repos/BaberAppv2/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binad/source/repos/webbb/Views/Shared/_Layout.cshtml]
+[C:/Users/zedis/source/repos/BaberAppv2/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-yg04friom5
