@@ -1,0 +1,162 @@
+﻿@model List<Appointment>
+@{
+    ViewData["Title"] = "Randevularım";
+}
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<style>
+    .appointment-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .appointment-header {
+        background-color: #1f1f1f;
+        color: white;
+        padding: 20px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .badge {
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 12px;
+    }
+
+    .badge-warning {
+        background-color: #ffc107;
+        color: #000;
+    }
+
+    .badge-success {
+        background-color: #28a745;
+        color: #fff;
+    }
+
+    .badge-danger {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+    .badge-info {
+        background-color: #17a2b8;
+        color: #fff;
+    }
+
+    .badge-secondary {
+        background-color: #6c757d;
+        color: #fff;
+    }
+
+    .table th {
+        background-color: #f8f9fa;
+    }
+
+    .btn-cancel {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+</style>
+
+<div class="container">
+    <div class="appointment-card">
+        <div class="appointment-header">
+            <h3 class="mb-0">Randevularım</h3>
+        </div>
+        <div class="card-body">
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["Success"]
+                </div>
+            }
+
+            @if (Model != null && Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Tarih/Saat</th>
+                                <th>Berber</th>
+                                <th>Hizmet</th>
+                                <th>Ücret</th>
+                                <th>Durum</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var appointment in Model.OrderByDescending(a => a.AppointmentDateTime))
+                            {
+                                <tr>
+                                    <td>@appointment.AppointmentDateTime.ToString("dd/MM/yyyy HH:mm")</td>
+                                    <td>@appointment.Employee?.Name</td>
+                                    <td>@appointment.Service?.ServiceName</td>
+                                    <td>@appointment.TotalPrice.ToString("C2")</td>
+                                    <td>
+                                        @switch (appointment.Status)
+                                        {
+                                            case AppointmentStatus.Pending:
+                                                <span class="badge badge-warning">Onay Bekliyor</span>
+                                                break;
+                                            case AppointmentStatus.Approved:
+                                                <span class="badge badge-success">Onaylandı</span>
+                                                break;
+                                            case AppointmentStatus.Rejected:
+                                                <span class="badge badge-danger">Reddedildi</span>
+                                                break;
+                                            case AppointmentStatus.Completed:
+                                                <span class="badge badge-info">Tamamlandı</span>
+                                                break;
+                                            case AppointmentStatus.Cancelled:
+                                                <span class="badge badge-secondary">İptal Edildi</span>
+                                                break;
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (appointment.Status == AppointmentStatus.Pending ||
+                                       appointment.Status == AppointmentStatus.Approved)
+                                        {
+                                            @if (appointment.AppointmentDateTime > DateTime.Now)
+                                            {
+                                                <form asp-action="CancelAppointment" asp-controller="Appointment"
+                                                      method="post" style="display: inline;">
+                                                    <input type="hidden" name="id" value="@appointment.AppointmentID" />
+                                                    <button type="submit" class="btn btn-danger btn-cancel"
+                                                            onclick="return confirm('Randevunuzu iptal etmek istediğinizden emin misiniz?')">
+                                                        İptal Et
+                                                    </button>
+                                                </form>
+                                            }
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-5">
+                    <h4 class="text-muted">Henüz randevunuz bulunmuyor</h4>
+                    <p class="mb-4">Hemen yeni bir randevu oluşturabilirsiniz</p>
+                    <a asp-controller="Appointment" asp-action="Create" class="btn btn-primary">
+                        Randevu Al
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

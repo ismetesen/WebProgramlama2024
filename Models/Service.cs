@@ -7,6 +7,7 @@
         public int Duration { get; set; } // Duration in minutes
         public decimal Price { get; set; }
 
-        public ICollection<Appointment> Appointments { get; set; } // One-to-Many relationship
+        // Navigation property
+        public virtual ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();
     }
 }

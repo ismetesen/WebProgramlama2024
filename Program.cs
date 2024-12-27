@@ -7,11 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// DbContext'i servislere ekleyin
+// DbContext configuration
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Session için
+// Session configuration
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -19,7 +19,7 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-// Authentication için
+// Authentication configuration
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
@@ -32,16 +32,11 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.SlidingExpiration = true;
     });
 
-// CORS politikası eklemek isterseniz
-builder.Services.AddCors(options =>
+// Authorization configuration
+builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("AllowAll",
-        builder =>
-        {
-            builder.AllowAnyOrigin()
-                   .AllowAnyMethod()
-                   .AllowAnyHeader();
-        });
+    options.AddPolicy("RequireAdminRole", policy => 
+        policy.RequireRole("Admin"));
 });
 
 var app = builder.Build();
@@ -62,13 +57,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// CORS middleware
-app.UseCors("AllowAll");
-
-// Session middleware
 app.UseSession();
 
-// Authentication & Authorization middleware
 app.UseAuthentication();
 app.UseAuthorization();
 

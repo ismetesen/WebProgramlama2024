@@ -1,77 +1,97 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\binad\\source\\repos\\vebaksam\\",
+  "WorkspaceRootPath": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\views\\admin\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\admin\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\models\\adminloginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:models\\adminloginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\views\\account\\appointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\account\\appointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\views\\appointment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\appointment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:models\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\models\\appointmentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:models\\appointmentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BarberShop/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\models\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:models\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\views\\home\\services.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\home\\services.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\views\\home\\portfolio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\home\\portfolio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\source\\repos\\vebaksam\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|c:\\users\\binad\\desktop\\nkvdenb\\webprogramlama2024\\webprogramlama2024\\migrations\\20241227230929_addappointmentstatusandcreatedat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFF4E6D8-BBD7-4809-89E4-32651D41FC97}|BarberApplication.csproj|solutionrelative:migrations\\20241227230929_addappointmentstatusandcreatedat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -81,232 +101,281 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAiwJAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T15:03:10.338Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-27T15:31:55.583Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAABEAAAAGAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Users.cshtml",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Admin\\Users.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Users.cshtml",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Admin\\Users.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Users.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T15:02:37.66Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAADgAAAAAAAAAAAAqwEQAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T14:00:11.941Z",
+              "WhenOpened": "2024-12-27T23:19:52.026Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAwwD4AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T13:57:01.196Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAowBoAAAASAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Admin\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Login.cshtml",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Admin\\Login.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T15:01:26.738Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-27T22:37:43.351Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Models\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\LoginViewModel.cs",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Models\\LoginViewModel.cs",
-              "RelativeToolTip": "Models\\LoginViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T15:22:26.199Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "dbo.Users [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BarberShop/True/SqlTable/dbo.Users.sql",
-              "ToolTip": "dbo.Users [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-12-27T15:42:50.027Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T14:42:57.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Models\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Models\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Models\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Models\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T15:32:57.95Z",
-              "EditorCaption": ""
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAALsAAAAAAAAAAAAAAPIAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-27T18:53:12.444Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Contact.cshtml",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Home\\Contact.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Home\\Contact.cshtml",
-              "RelativeToolTip": "Views\\Home\\Contact.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T13:53:51.693Z",
-              "EditorCaption": ""
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAcwEAAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-27T22:50:46.545Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "Views\\_ViewStart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-27T22:49:38.751Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAAwE0AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-27T22:33:02.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "20241227230929_AddAppointmentStatusAndCreatedAt.cs",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Migrations\\20241227230929_AddAppointmentStatusAndCreatedAt.cs",
+              "RelativeDocumentMoniker": "Migrations\\20241227230929_AddAppointmentStatusAndCreatedAt.cs",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Migrations\\20241227230929_AddAppointmentStatusAndCreatedAt.cs",
+              "RelativeToolTip": "Migrations\\20241227230929_AddAppointmentStatusAndCreatedAt.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAuwAoAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-27T23:09:29.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T14:19:41.154Z"
+              "WhenOpened": "2024-12-27T22:36:59.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "Models\\Appointment.cs",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Models\\Appointment.cs",
+              "RelativeToolTip": "Models\\Appointment.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-27T19:53:44.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AdminLoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Models\\AdminLoginViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\AdminLoginViewModel.cs",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Models\\AdminLoginViewModel.cs",
+              "RelativeToolTip": "Models\\AdminLoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-27T22:48:23.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppointmentController.cs",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Controllers\\AppointmentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AppointmentController.cs",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Controllers\\AppointmentController.cs",
+              "RelativeToolTip": "Controllers\\AppointmentController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwL8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-27T19:54:45.762Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "RegisterViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Models\\RegisterViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\RegisterViewModel.cs",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Models\\RegisterViewModel.cs",
-              "RelativeToolTip": "Models\\RegisterViewModel.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBcAAAAFAAAAAAAAAA==",
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T15:23:33.71Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-27T18:43:37.477Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "About.cshtml",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Home\\About.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\About.cshtml",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Home\\About.cshtml",
-              "RelativeToolTip": "Views\\Home\\About.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "Appointments.cshtml",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Account\\Appointments.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Appointments.cshtml",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Account\\Appointments.cshtml",
+              "RelativeToolTip": "Views\\Account\\Appointments.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T13:59:52.573Z"
+              "WhenOpened": "2024-12-27T19:44:09.852Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "Services.cshtml",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Home\\Services.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Services.cshtml",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Home\\Services.cshtml",
-              "RelativeToolTip": "Views\\Home\\Services.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T13:54:02.861Z"
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "Models\\Admin.cs",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Models\\Admin.cs",
+              "RelativeToolTip": "Models\\Admin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-27T22:33:54.998Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "Portfolio.cshtml",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Home\\Portfolio.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Portfolio.cshtml",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Home\\Portfolio.cshtml",
-              "RelativeToolTip": "Views\\Home\\Portfolio.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Appointment\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Appointment\\Create.cshtml",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Appointment\\Create.cshtml",
+              "RelativeToolTip": "Views\\Appointment\\Create.cshtml",
+              "ViewState": "AgIAAL8AAAAAAAAAAAAcwNoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T13:54:01.74Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Home\\Login.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Login.cshtml",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Home\\Login.cshtml",
-              "RelativeToolTip": "Views\\Home\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T13:53:59.397Z"
+              "WhenOpened": "2024-12-27T20:06:09.996Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\binad\\source\\repos\\vebaksam\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "Views\\Home\\About.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T13:53:47.99Z"
+              "WhenOpened": "2024-12-27T19:28:45.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Service.cs",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Models\\Service.cs",
+              "RelativeDocumentMoniker": "Models\\Service.cs",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Models\\Service.cs",
+              "RelativeToolTip": "Models\\Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-27T20:21:09.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AppointmentViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Models\\AppointmentViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\AppointmentViewModel.cs",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Models\\AppointmentViewModel.cs",
+              "RelativeToolTip": "Models\\AppointmentViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-27T19:56:16.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "dbo.Users.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BarberShop/True/SqlTable/dbo.Users.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BarberShop/True/SqlTable/dbo.Users.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-12-27T19:02:16.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-27T18:42:56.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-27T19:04:32.374Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-27T18:39:03.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Account\\Profile.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\Views\\Account\\Profile.cshtml",
+              "RelativeToolTip": "Views\\Account\\Profile.cshtml",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAAKcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-27T19:15:14.762Z"
             }
           ]
         }

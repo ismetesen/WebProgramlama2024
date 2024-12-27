@@ -1,0 +1,121 @@
+﻿@model IEnumerable<User>
+@{
+    ViewData["Title"] = "Kullanıcı Yönetimi";
+}
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<style>
+    .users-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .users-header {
+        background-color: #1f1f1f;
+        color: white;
+        padding: 20px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .table th {
+        background-color: #f8f9fa;
+    }
+
+    .badge {
+        padding: 8px 12px;
+        border-radius: 4px;
+    }
+
+    .badge-info {
+        background-color: #17a2b8;
+        color: white;
+    }
+</style>
+
+<div class="container">
+    <div class="card users-card">
+        <div class="users-header d-flex justify-content-between align-items-center">
+            <h3 class="mb-0">Kullanıcı Listesi</h3>
+        </div>
+        <div class="card-body">
+            @if (Model != null && Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ad Soyad</th>
+                                <th>Email</th>
+                                <th>Kayıt Tarihi</th>
+                                <th>Randevu Sayısı</th>
+                                <th>Durum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model)
+                            {
+                                <tr>
+                                    <td>@user.UserID</td>
+                                    <td>@user.FullName</td>
+                                    <td>@user.Email</td>
+                                    <td>@user.RegistrationDate.ToString("dd/MM/yyyy HH:mm")</td>
+                                    <td>
+                                        <span class="badge badge-info">
+                                            @(user.Appointments?.Count ?? 0) Randevu
+                                        </span>
+                                    </td>
+                                    <td>
+                                        @{
+                                            var activeAppointments = user.Appointments?
+                                            .Count(a => a.AppointmentDateTime > DateTime.Now &&
+                                            (a.Status == AppointmentStatus.Pending ||
+                                            a.Status == AppointmentStatus.Approved)) ?? 0;
+                                        }
+                                        @if (activeAppointments > 0)
+                                        {
+                                            <span class="badge badge-warning">@activeAppointments Aktif Randevu</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-secondary">Aktif Randevu Yok</span>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-5">
+                    <h4 class="text-muted">Henüz kayıtlı kullanıcı bulunmuyor</h4>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // DataTable initialization
+            $('.table').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
+                },
+                "order": [[0, "desc"]]
+            });
+        });
+    </script>
+}

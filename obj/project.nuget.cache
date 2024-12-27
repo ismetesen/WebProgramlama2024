@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jxtzpPD8ncA=",
+  "dgSpecHash": "Q/+n+Gfb/Fk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\binad\\source\\repos\\vebaksam\\BarberApplication.csproj",
+  "projectFilePath": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\BarberApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\binad\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\binad\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

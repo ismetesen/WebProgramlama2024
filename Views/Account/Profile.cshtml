@@ -1,0 +1,177 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Profilim";
+}
+<!--? Hero Start -->
+<div class="slider-area2">
+    <div class="slider-height2 d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap hero-cap2 pt-70 text-center">
+                        <h2>Profil</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
+<!-- Hero End -->
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card profile-card">
+                <div class="profile-header">
+                    <h3 class="mb-0">Profil Bilgilerim</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Profil Fotoğrafı -->
+                        <div class="col-md-4 text-center mb-4">
+                            <div class="profile-img-container">
+                                <img src="~/assets/img/logo/loder.png" class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;" />
+                            </div>
+                        </div>
+
+                        <!-- Profil Bilgileri -->
+                        <div class="col-md-8">
+                            <div class="info-group mb-3">
+                                <label class="text-muted">Ad Soyad</label>
+                                <h5>@Model.FullName</h5>
+                            </div>
+
+                            <div class="info-group mb-3">
+                                <label class="text-muted">Email</label>
+                                <h5>@Model.Email</h5>
+                            </div>
+
+                            <div class="info-group mb-3">
+                                <label class="text-muted">Üyelik Tarihi</label>
+                                <h5>@Model.RegistrationDate.ToString("dd MMMM yyyy")</h5>
+                            </div>
+
+                            <div class="info-group mb-3">
+                                <label class="text-muted">Hesap Türü</label>
+                                <h5>@Model.Role</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Randevu Geçmişi -->
+                    <div class="mt-4">
+                        <h4 class="mb-3">Son Randevularım</h4>
+                        @if (Model.Appointments != null && Model.Appointments.Any())
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Tarih</th>
+                                            <th>Hizmet</th>
+                                            <th>Berber</th>
+                                            <th>Durum</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var appointment in Model.Appointments.OrderByDescending(a => a.AppointmentDateTime).Take(5))
+                                        {
+                                            <tr>
+                                                <td>@appointment.AppointmentDateTime.ToString("dd.MM.yyyy HH:mm")</td>
+                                                <td>@appointment.Service?.ServiceName</td>
+                                                <td>@appointment.Employee?.EmployeeID</td>
+                                                <td>
+                                                    @if (appointment.AppointmentDateTime > DateTime.Now)
+                                                    {
+                                                        <span class="badge badge-primary">Bekliyor</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="badge badge-success">Tamamlandı</span>
+                                                    }
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="text-muted">Henüz randevu geçmişiniz bulunmuyor.</p>
+                        }
+                    </div>
+
+                    <!-- Butonlar -->
+                    <div class="mt-4">
+                        <a asp-controller="Account" asp-action="EditProfile" class="btn btn-primary">
+                            <i class="fas fa-edit"></i> Profili Düzenle
+                        </a>
+                        <a asp-controller="Account" asp-action="ChangePassword" class="btn btn-warning">
+                            <i class="fas fa-key"></i> Şifre Değiştir
+                        </a>
+                        <a asp-controller="Appointment" asp-action="Create" class="btn btn-success">
+                            <i class="fas fa-calendar-plus"></i> Yeni Randevu
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .info-group label {
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .info-group h5 {
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .badge {
+        padding: 0.5em 1em;
+    }
+
+    .card {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+    .btn {
+        margin-right: 10px;
+    }
+
+    .profile-img-container {
+        position: relative;
+        margin-bottom: 1rem;
+    }
+
+    .table th {
+        background-color: #f8f9fa;
+    }
+
+    .badge-primary {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .badge-success {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .profile-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 20px white;
+    }
+
+    .profile-header {
+        background-color: rgba(0,0,0,0.1);
+        color: white;
+        padding: 20px;
+        border-radius: 10px 10px 0 0;
+    }
+</style>

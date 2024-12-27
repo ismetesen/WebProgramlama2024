@@ -5,6 +5,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using NETCore.Encrypt.Extensions;
 using BarberApplication.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BarberApplication.Controllers
 {
@@ -73,6 +74,11 @@ namespace BarberApplication.Controllers
 
             return View(model);
         }
+        [AllowAnonymous]
+        public IActionResult Register()
+        {
+            return View();
+        }
 
         [AllowAnonymous]
         [HttpPost]
@@ -124,8 +130,19 @@ namespace BarberApplication.Controllers
         [Authorize]
         public IActionResult Profile()
         {
-            string userEmail = HttpContext.Session.GetString("SesUsr");
-            var user = _databaseContext.Users.FirstOrDefault(x => x.Email == userEmail);
+            string? userEmail = HttpContext.Session.GetString("SesUsr");
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return RedirectToAction("Login");
+            }
+
+            // Include ile ilişkili verileri de çekiyoruz
+            var user = _databaseContext.Users
+                .Include(u => u.Appointments)
+                    .ThenInclude(a => a.Service)
+                .Include(u => u.Appointments)
+                    .ThenInclude(a => a.Employee)
+                .FirstOrDefault(x => x.Email == userEmail);
 
             if (user == null)
             {
@@ -139,7 +156,27 @@ namespace BarberApplication.Controllers
         {
             HttpContext.Session.Clear();
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize]
+        public IActionResult Appointments()
+        {
+            string? userEmail = HttpContext.Session.GetString("SesUsr");
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return RedirectToAction("Login");
+            }
+
+            // Kullanıcının randevularını getir
+            var appointments = _databaseContext.Appointments
+                .Include(a => a.Service)
+                .Include(a => a.Employee)
+                .Where(a => a.User.Email == userEmail)
+                .OrderByDescending(a => a.AppointmentDateTime)
+                .ToList();
+
+            return View(appointments);
         }
     }
 }

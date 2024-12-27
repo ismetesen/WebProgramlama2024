@@ -22,7 +22,7 @@ namespace BarberApplication.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BarberApplication.Models.Appointment", b =>
+            modelBuilder.Entity("Appointment", b =>
                 {
                     b.Property<int>("AppointmentID")
                         .ValueGeneratedOnAdd()
@@ -33,6 +33,9 @@ namespace BarberApplication.Migrations
                     b.Property<DateTime>("AppointmentDateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("CustomerName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -41,6 +44,9 @@ namespace BarberApplication.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("ServiceID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalPrice")
@@ -176,7 +182,7 @@ namespace BarberApplication.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("BarberApplication.Models.Appointment", b =>
+            modelBuilder.Entity("Appointment", b =>
                 {
                     b.HasOne("BarberApplication.Models.Employee", "Employee")
                         .WithMany("Appointments")

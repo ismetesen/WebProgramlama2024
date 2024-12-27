@@ -1,0 +1,286 @@
+﻿@model AppointmentViewModel
+@{
+    ViewData["Title"] = "Randevu Al";
+    var today = DateTime.Now;
+    var nextWeek = Enumerable.Range(0, 7).Select(i => today.AddDays(i)).ToList();
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<style>
+    .appointment-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .appointment-header {
+        background-color: #1f1f1f;
+        color: white;
+        padding: 20px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .price-display {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #28a745;
+        margin-top: 1rem;
+    }
+
+    .service-info {
+        font-size: 0.9rem;
+        color: #6c757d;
+        margin-top: 0.5rem;
+    }
+
+    .day-selector {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    .day-option {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .day-radio {
+        display: none;
+    }
+
+    .day-label {
+        display: block;
+        padding: 10px;
+        text-align: center;
+        background-color: #f8f9fa;
+        border: 2px solid #dee2e6;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .day-radio:checked + .day-label {
+        background-color: #ff5f13;
+        color: white;
+        border-color: #ff5f13;
+    }
+
+    .time-slots {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .time-slot {
+        display: none;
+    }
+
+    .time-slot-label {
+        display: block;
+        padding: 10px 20px;
+        background-color: #f8f9fa;
+        border: 2px solid #dee2e6;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .time-slot:checked + .time-slot-label {
+        background-color: #28a745;
+        color: white;
+        border-color: #28a745;
+    }
+
+    .time-slot-label:hover {
+        background-color: #e9ecef;
+    }
+
+    .time-slot:disabled + .time-slot-label {
+        background-color: #e9ecef;
+        color: #6c757d;
+        cursor: not-allowed;
+        text-decoration: line-through;
+    }
+</style>
+
+<div class="container">
+    <div class="card appointment-card">
+        <div class="appointment-header">
+            <h3 class="mb-0">Yeni Randevu</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <div class="form-group">
+                    <label asp-for="EmployeeID" class="control-label">Berber</label>
+                    <select asp-for="EmployeeID" class="form-control" id="employeeSelect">
+                        <option value="">Berber Seçin</option>
+                        @foreach (var employee in ViewBag.Employees)
+                        {
+                            <option value="@employee.EmployeeID">@employee.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ServiceID" class="control-label">Hizmet</label>
+                    <select asp-for="ServiceID" class="form-control" id="serviceSelect">
+                        <option value="">Hizmet Seçin</option>
+                        @foreach (var service in ViewBag.Services)
+                        {
+                            <option value="@service.ServiceID"
+                                    data-price="@service.Price"
+                                    data-duration="@service.Duration">
+                                @service.ServiceName - @service.Price.ToString("C2") (@service.Duration dk)
+                            </option>
+                        }
+                    </select>
+                    <div id="serviceInfo" class="service-info"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Randevu Günü</label>
+                    <div class="day-selector">
+                        @foreach (var date in nextWeek)
+                        {
+                            <div class="day-option">
+                                <input type="radio" name="selectedDay" id="day_@date.ToString("yyyy_MM_dd")"
+                                       class="day-radio" value="@date.ToString("yyyy-MM-dd")" />
+                                <label for="day_@date.ToString("yyyy_MM_dd")" class="day-label">
+                                    @date.ToString("dd MMMM dddd")
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Randevu Saati</label>
+                    <div id="timeSlots" class="time-slots">
+                        <!-- Saatler JavaScript ile doldurulacak -->
+                    </div>
+                </div>
+
+                <input type="hidden" asp-for="AppointmentDateTime" id="fullAppointmentDateTime" />
+
+                <div class="price-display" id="selectedPrice">
+                    Toplam Ücret: 0.00 ₺
+                </div>
+
+                <div class="form-group mt-4">
+                    <button type="submit" class="btn btn-primary">Randevu Oluştur</button>
+                    <a asp-controller="Account" asp-action="Appointments" class="btn btn-secondary">İptal</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        function generateTimeSlots(selectedDate) {
+            var employeeId = $('#employeeSelect').val();
+            var serviceId = $('#serviceSelect').val();
+
+            console.log('Generating time slots for:', {
+                employeeId: employeeId,
+                serviceId: serviceId,
+                selectedDate: selectedDate
+            });
+
+            if (!employeeId || !serviceId || !selectedDate) {
+                $('#timeSlots').html('<p>Lütfen berber, hizmet ve gün seçin</p>');
+                return;
+            }
+
+            $('#timeSlots').html('<p>Yükleniyor...</p>');
+
+            $.ajax({
+                url: '/Appointment/GetAvailableTimeSlots',
+                type: 'GET',
+                data: {
+                    employeeId: employeeId,
+                    serviceId: serviceId,
+                    date: selectedDate
+                },
+                success: function (slots) {
+                    console.log('Received slots:', slots);
+                    var html = '';
+                    if (slots && slots.length > 0) {
+                        slots.forEach(function (time) {
+                            var timeId = `time_${time.replace(':', '_')}`;
+                            html += `
+                                <div>
+                                    <input type="radio" name="selectedTime" id="${timeId}"
+                                           class="time-slot" value="${time}" />
+                                    <label for="${timeId}" class="time-slot-label">
+                                        ${time}
+                                    </label>
+                                </div>`;
+                        });
+                    } else {
+                        html = '<p>Bu günde müsait zaman bulunamadı</p>';
+                    }
+                    $('#timeSlots').html(html);
+
+                    // Saat seçimi event listener'ı
+                    $('.time-slot').change(function() {
+                        var selectedTime = $(this).val();
+                        var selectedDate = $('input[name="selectedDay"]:checked').val();
+                        if (selectedDate && selectedTime) {
+                            $('#fullAppointmentDateTime').val(`${selectedDate}T${selectedTime}`);
+                        }
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                    console.error('Status:', status);
+                    console.error('Response:', xhr.responseText);
+                    $('#timeSlots').html('<p>Hata oluştu</p>');
+                }
+            });
+        }
+
+        // Gün seçimi değiştiğinde
+        $('input[name="selectedDay"]').change(function() {
+            console.log('Selected day:', $(this).val());
+            generateTimeSlots($(this).val());
+        });
+
+        // Berber veya hizmet seçimi değiştiğinde
+        $('#employeeSelect, #serviceSelect').change(function() {
+            var selectedDate = $('input[name="selectedDay"]:checked').val();
+            console.log('Service/Employee changed, selected date:', selectedDate);
+            if (selectedDate) {
+                generateTimeSlots(selectedDate);
+            }
+        });
+
+        // Servis seçimi değiştiğinde fiyat ve süre bilgisini güncelle
+        $('#serviceSelect').change(function() {
+            var selectedOption = $(this).find('option:selected');
+            var price = selectedOption.data('price');
+            var duration = selectedOption.data('duration');
+
+            $('#selectedPrice').text('Toplam Ücret: ' +
+                new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(price || 0));
+
+            if (duration) {
+                $('#serviceInfo').text(`İşlem Süresi: ${duration} dakika`);
+            } else {
+                $('#serviceInfo').text('');
+            }
+        });
+    });
+</script>
