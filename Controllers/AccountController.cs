@@ -2,19 +2,12 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-
 using Microsoft.AspNetCore.Authorization;
-
 using NETCore.Encrypt.Extensions;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using User = BarberApplication.Models.User;
-using BarberApplication.Controllers;
 using BarberApplication.Models;
 
-
-namespace WebOdev.Controllers
+namespace BarberApplication.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _databaseContext;
@@ -38,27 +31,31 @@ namespace WebOdev.Controllers
         {
             if (ModelState.IsValid)
             {
-                string md5Salt = _configuration.GetValue<string>("Appsettings:MD5Salt");
+                string? md5Salt = _configuration.GetValue<string>("AppSettings:MD5Salt");
+                if (md5Salt == null)
+                {
+                    ModelState.AddModelError("", "Configuration error: MD5Salt is missing.");
+                    return View(model);
+                }
                 string saltedPassword = model.Password + md5Salt;
                 string hashedPassword = saltedPassword.MD5();
 
                 User user = _databaseContext.Users.SingleOrDefault(x => x.Email.ToLower() == model.Email.ToLower() && x.PasswordHash == hashedPassword);
 
-                if (user != null) // If user is found
+                if (user != null)
                 {
-                    // Assuming you have a 'Locked' property or similar logic to handle locked users
-                    // if (user.Locked)
-                    // {
-                    //     ModelState.AddModelError(nameof(model.Username), "User is locked.");
-                    //     return View(model);
-                    // }
+                    // Session'a kullanıcı bilgilerini ekle
+                    HttpContext.Session.SetString("SesUsr", user.Email);
+                    HttpContext.Session.SetString("UserFullName", user.FullName);
+                    HttpContext.Session.SetString("UserID", user.UserID.ToString());
 
+                    // Claims oluştur
                     List<Claim> claims = new List<Claim>
                     {
-                        new Claim("id", user.UserID.ToString()),
-                        new Claim("FullName", user.FullName ?? string.Empty),
-                        new Claim("Email", user.Email),
-                        new Claim("Role", user.Role)
+                        new Claim(ClaimTypes.NameIdentifier, user.UserID.ToString()),
+                        new Claim(ClaimTypes.Name, user.FullName),
+                        new Claim(ClaimTypes.Email, user.Email),
+                        new Claim(ClaimTypes.Role, user.Role ?? "User")
                     };
 
                     ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -70,17 +67,11 @@ namespace WebOdev.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Email or password is incorrect");
+                    ModelState.AddModelError("", "Email veya şifre hatalı");
                 }
             }
 
             return View(model);
-        }
-
-        [AllowAnonymous]
-        public IActionResult Register()
-        {
-            return View();
         }
 
         [AllowAnonymous]
@@ -89,14 +80,18 @@ namespace WebOdev.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Check if email already exists
                 if (_databaseContext.Users.Any(x => x.Email.ToLower() == model.Email.ToLower()))
                 {
-                    ModelState.AddModelError(nameof(model.Email), "Email is already exists.");
+                    ModelState.AddModelError(nameof(model.Email), "Bu email adresi zaten kayıtlı.");
                 }
                 else
                 {
-                    string md5Salt = _configuration.GetValue<string>("Appsettings:MD5Salt");
+                    string? md5Salt = _configuration.GetValue<string>("AppSettings:MD5Salt");
+                    if (md5Salt == null)
+                    {
+                        ModelState.AddModelError("", "Configuration error: MD5Salt is missing.");
+                        return View(model);
+                    }
                     string saltedPassword = model.Password + md5Salt;
                     string hashedPassword = saltedPassword.MD5();
 
@@ -106,7 +101,7 @@ namespace WebOdev.Controllers
                         Email = model.Email,
                         PasswordHash = hashedPassword,
                         RegistrationDate = DateTime.Now,
-                        Role = "User" // Default role
+                        Role = "User"
                     };
 
                     _databaseContext.Users.Add(user);
@@ -114,7 +109,7 @@ namespace WebOdev.Controllers
 
                     if (affectedRowCount == 0)
                     {
-                        ModelState.AddModelError("", "User cannot be added.");
+                        ModelState.AddModelError("", "Kullanıcı eklenemedi.");
                     }
                     else
                     {
@@ -126,15 +121,25 @@ namespace WebOdev.Controllers
             return View(model);
         }
 
+        [Authorize]
         public IActionResult Profile()
         {
-            return View();
+            string userEmail = HttpContext.Session.GetString("SesUsr");
+            var user = _databaseContext.Users.FirstOrDefault(x => x.Email == userEmail);
+
+            if (user == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            return View(user);
         }
 
         public IActionResult Logout()
         {
+            HttpContext.Session.Clear();
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction(nameof(Login));
+            return RedirectToAction("Login");
         }
     }
 }

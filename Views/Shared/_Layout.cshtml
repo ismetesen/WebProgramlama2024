@@ -55,18 +55,38 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li class="active"><a href="index.html">Anasayfa</a></li>
+                                            <li class="active"><a asp-controller="Home" asp-action="Index">Anasayfa</a></li>
                                             <li><a asp-controller="Home" asp-action="About">Hakkında</a></li>
                                             <li><a asp-controller="Home" asp-action="Services">Hizmetler</a></li>
                                             <li><a asp-controller="Home" asp-action="Portfolio">Portfolyo</a></li>
                                             <li><a asp-controller="Home" asp-action="Contact">İletişim</a></li>
-
+                                            
                                         </ul>
-                                    </nav>
+									</nav>
+                                    <div>
+                                        <div class="header-right-btn f-right d-none d-lg-block ml-30">
+                                            @if (Context.Session.GetString("SesUsr") != null)
+                                            {
+                                                <div class="dropdown">
+                                                    <button class="btn header-btn dropdown-toggle" type="button" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        @Context.Session.GetString("UserFullName")
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
+                                                        <a class="dropdown-item" asp-controller="Account" asp-action="Profile">Profilim</a>
+                                                        <a class="dropdown-item" asp-controller="Account" asp-action="Appointments">Randevularım</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" asp-controller="Account" asp-action="Logout">Çıkış Yap</a>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <a asp-controller="Account" asp-action="Login" class="btn header-btn">Üye Ol</a>
+                                            }
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="header-right-btn f-right d-none d-lg-block ml-30">
-                                    <a href="from.html" class="btn header-btn">üye ol</a>
-                                </div>
+                                
                             </div>
                         </div>
                         <!-- Mobile Menu -->
