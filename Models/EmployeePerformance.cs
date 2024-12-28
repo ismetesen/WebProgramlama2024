@@ -1,14 +1,32 @@
-﻿namespace BarberApplication.Models
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BarberApplication.Models
 {
     public class EmployeePerformance
     {
-        public int PerformanceID { get; set; } // Primary Key
-        public int EmployeeID { get; set; } // Foreign Key
-        public DateTime Date { get; set; } // Specific day
-        public decimal TotalIncome { get; set; } // Total earnings
-        public int TotalAppointments { get; set; } // Number of appointments
-        public decimal EfficiencyScore { get; set; } // Example: TotalIncome / TotalAppointments
+        [Key]
+        public int PerformanceID { get; set; }
 
-        public Employee Employee { get; set; } // Navigation property
+        [ForeignKey("Employee")]
+        public int EmployeeID { get; set; }
+
+        [Required]
+        public DateTime Date { get; set; }
+
+        [Required]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal TotalIncome { get; set; }
+
+        [Required]
+        public int TotalAppointments { get; set; }
+
+        [Required]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal EfficiencyScore { get; set; }
+
+        // Navigation property
+        public virtual Employee Employee { get; set; }
     }
 }

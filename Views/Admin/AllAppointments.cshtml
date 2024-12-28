@@ -1,0 +1,131 @@
+﻿@model List<Appointment>
+<!--? Hero Start -->
+<div class="slider-area2">
+    <div class="slider-height2 d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap hero-cap2 pt-70 text-center">
+                        <h2>Randevular</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Tüm Randevular</h2>
+        <a asp-controller="Appointment" asp-action="Create" class="btn btn-success">
+            <i class="fas fa-plus"></i> Yeni Randevu Ekle
+        </a>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Success"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover" id="appointmentsTable">
+                    <thead>
+                        <tr>
+                            <th>Tarih/Saat</th>
+                            <th>Müşteri</th>
+                            <th>Hizmet</th>
+                            <th>Berber</th>
+                            <th>Durum</th>
+                            <th>Ücret</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var appointment in Model)
+                        {
+                            <tr>
+                                <td>@appointment.AppointmentDateTime.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td>@appointment.User.FullName</td>
+                                <td>@appointment.Service.ServiceName</td>
+                                <td>@appointment.Employee.Name</td>
+                                <td>
+                                    @switch (appointment.Status)
+                                    {
+                                        case AppointmentStatus.Pending:
+                                            <span class="badge badge-warning">Beklemede</span>
+                                            break;
+                                        case AppointmentStatus.Approved:
+                                            <span class="badge badge-success">Onaylandı</span>
+                                            break;
+                                        case AppointmentStatus.Rejected:
+                                            <span class="badge badge-danger">Reddedildi</span>
+                                            break;
+                                        case AppointmentStatus.Completed:
+                                            <span class="badge badge-info">Tamamlandı</span>
+                                            break;
+                                    }
+                                </td>
+                                <td>@appointment.TotalPrice.ToString("C2")</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                            onclick="confirmDelete(@appointment.AppointmentID)">
+                                        <i class="fas fa-trash"></i> Sil
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Silme Onay Modalı -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Randevu Silme Onayı</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Bu randevuyu silmek istediğinizden emin misiniz?</p>
+            </div>
+            <div class="modal-footer">
+                <form id="deleteForm" asp-action="DeleteAppointment" method="post">
+                    <input type="hidden" id="appointmentId" name="id" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('#appointmentsTable').DataTable({
+                "order": [[0, "desc"]],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
+                }
+            });
+        });
+
+        function confirmDelete(id) {
+            $('#appointmentId').val(id);
+            $('#deleteModal').modal('show');
+        }
+    </script>
+}

@@ -1,6 +1,7 @@
 ﻿using BarberApplication.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using BarberApplication.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,6 +62,11 @@ app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "faceanalysis",
+    pattern: "face-analysis/{action=Analysis}/{id?}",
+    defaults: new { controller = "FaceAnalysis" });
 
 app.MapControllerRoute(
     name: "default",

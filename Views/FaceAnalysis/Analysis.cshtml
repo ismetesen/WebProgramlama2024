@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Yüz Analizi ve Saç Modeli Önerisi";
+}
+<!--? Hero Start -->
+<div class="slider-area2">
+    <div class="slider-height2 d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap hero-cap2 pt-70 text-center">
+                        <h2>Yüz Analizi</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Yüz Analizi ve Saç Modeli Önerisi</h3>
+                </div>
+                <div class="card-body">
+                    <form id="photoForm" enctype="multipart/form-data">
+                        <div class="form-group mb-4">
+                            <label class="form-label">Fotoğrafınızı Yükleyin</label>
+                            <input type="file" class="form-control" id="photo" name="photo" accept="image/*" required>
+                            <small class="text-muted">Yüzünüzün net göründüğü bir fotoğraf yükleyin.</small>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-camera me-2"></i>Analiz Et
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="loading" style="display:none;" class="text-center mt-4">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Yükleniyor...</span>
+                        </div>
+                        <p class="mt-2">Fotoğrafınız analiz ediliyor...</p>
+                    </div>
+
+                    <div id="result" style="display:none;" class="mt-4">
+                        <h4 class="mb-3">Analiz Sonucu</h4>
+                        <div class="alert alert-info">
+                            <p><strong>Tespit Edilen Yüz Şekli:</strong> <span id="faceShape"></span></p>
+                            <hr>
+                            <p><strong>Önerilen Saç Modelleri:</strong></p>
+                            <p id="recommendation" class="mb-0"></p>
+                        </div>
+                    </div>
+
+                    <div id="error" style="display:none;" class="mt-4">
+                        <div class="alert alert-danger">
+                            <p class="mb-0">Bir hata oluştu. Lütfen tekrar deneyin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('#photoForm').submit(function(e) {
+                e.preventDefault();
+
+                var formData = new FormData();
+                formData.append('photo', $('#photo')[0].files[0]);
+
+                // UI elemanlarını sıfırla
+                $('#result').hide();
+                $('#error').hide();
+                $('#loading').show();
+
+                $.ajax({
+                    url: '/FaceAnalysis/AnalyzePhoto',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $('#loading').hide();
+                        $('#faceShape').text(response.faceShape);
+                        $('#recommendation').html(response.recommendation.replace(/\n/g, '<br>'));
+                        $('#result').fadeIn();
+                    },
+                    error: function() {
+                        $('#loading').hide();
+                        $('#error').fadeIn();
+                    }
+                });
+            });
+        });
+    </script>
+}

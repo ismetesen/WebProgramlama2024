@@ -1,0 +1,151 @@
+﻿@model Employee
+<!--? Hero Start -->
+<div class="slider-area2">
+    <div class="slider-height2 d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap hero-cap2 pt-70 text-center">
+                        <h2>Çalışan Ekle</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h3 class="card-title mb-0">Yeni Çalışan Ekle</h3>
+                </div>
+                <div class="card-body">
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                @foreach (var modelError in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                {
+                                    <li>@modelError.ErrorMessage</li>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    <form asp-action="AddEmployee" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Name" class="control-label">Ad Soyad</label>
+                                    <input asp-for="Name" class="form-control" placeholder="Örn: Ahmet Yılmaz" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Specialization" class="control-label">Uzmanlık Alanı</label>
+                                    <select asp-for="Specialization" class="form-control">
+                                        <option value="">Seçiniz...</option>
+                                        <option value="Saç Kesimi">Saç Kesimi</option>
+                                        <option value="Saç Kesimi, Sakal Tıraşı">Saç Kesimi, Sakal Tıraşı</option>
+                                        <option value="Saç Kesimi, Sakal Tıraşı, Boya">Saç Kesimi, Sakal Tıraşı, Boya</option>
+                                        <option value="Saç Boyama">Saç Boyama</option>
+                                        <option value="Cilt Bakımı">Cilt Bakımı</option>
+                                    </select>
+                                    <span asp-validation-for="Specialization" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Availability" class="control-label">Çalışma Saatleri</label>
+                                    <select asp-for="Availability" class="form-control">
+                                        <option value="">Seçiniz...</option>
+                                        <option value="09:00-17:00">09:00-17:00</option>
+                                        <option value="10:00-18:00">10:00-18:00</option>
+                                        <option value="11:00-19:00">11:00-19:00</option>
+                                        <option value="12:00-20:00">12:00-20:00</option>
+                                    </select>
+                                    <span asp-validation-for="Availability" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">&nbsp;</label>
+                                    <div class="custom-control custom-switch">
+                                        <input asp-for="IsActive" class="custom-control-input" />
+                                        <label class="custom-control-label" asp-for="IsActive">Aktif Çalışan</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col">
+                                <div class="form-group mb-0">
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-save"></i> Kaydet
+                                    </button>
+                                    <a asp-action="Employees" class="btn btn-secondary">
+                                        <i class="fas fa-arrow-left"></i> Geri Dön
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            // Select2 kullanımı için (opsiyonel)
+            $('select').select2({
+                theme: 'bootstrap4'
+            });
+        });
+    </script>
+}
+
+@section Styles {
+    <style>
+        .card {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .custom-switch .custom-control-label::before {
+            height: 1.5rem;
+            width: 2.75rem;
+            border-radius: 1rem;
+        }
+
+        .custom-switch .custom-control-label::after {
+            height: calc(1.5rem - 4px);
+            width: calc(1.5rem - 4px);
+            border-radius: 50%;
+        }
+
+        .btn {
+            padding: 0.5rem 1.5rem;
+        }
+
+            .btn i {
+                margin-right: 0.5rem;
+            }
+    </style>
+}

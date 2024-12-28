@@ -213,18 +213,6 @@
       "PackagePath": "staticwebassets\\assets\\img\\gallery\\about.png"
     },
     {
-      "Id": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\wwwroot\\assets\\img\\gallery\\about2.png",
-      "PackagePath": "staticwebassets\\assets\\img\\gallery\\about2.png"
-    },
-    {
-      "Id": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\wwwroot\\assets\\img\\gallery\\blog1.png",
-      "PackagePath": "staticwebassets\\assets\\img\\gallery\\blog1.png"
-    },
-    {
-      "Id": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\wwwroot\\assets\\img\\gallery\\blog2.png",
-      "PackagePath": "staticwebassets\\assets\\img\\gallery\\blog2.png"
-    },
-    {
       "Id": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\wwwroot\\assets\\img\\gallery\\contact_form.png",
       "PackagePath": "staticwebassets\\assets\\img\\gallery\\contact_form.png"
     },
@@ -255,10 +243,6 @@
     {
       "Id": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\wwwroot\\assets\\img\\gallery\\gallery4.png",
       "PackagePath": "staticwebassets\\assets\\img\\gallery\\gallery4.png"
-    },
-    {
-      "Id": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\wwwroot\\assets\\img\\gallery\\gallery5.png",
-      "PackagePath": "staticwebassets\\assets\\img\\gallery\\gallery5.png"
     },
     {
       "Id": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\wwwroot\\assets\\img\\gallery\\home-blog1.png",
@@ -771,6 +755,10 @@
     {
       "Id": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\binad\\Desktop\\nkvdenb\\WebProgramlama2024\\WebProgramlama2024\\wwwroot\\uploads\\profiles\\8bf4ef06-9b51-4d5b-8763-1675cacaf3e2.png",
+      "PackagePath": "staticwebassets\\uploads\\profiles\\8bf4ef06-9b51-4d5b-8763-1675cacaf3e2.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BarberApplication.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

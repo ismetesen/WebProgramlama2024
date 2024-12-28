@@ -49,10 +49,7 @@ wwwroot\assets\fonts\themify.ttf
 wwwroot\assets\fonts\themify.woff
 wwwroot\assets\img\favicon.ico
 wwwroot\assets\img\gallery\about.png
-wwwroot\assets\img\gallery\about2.png
 wwwroot\assets\img\gallery\about-shape.png
-wwwroot\assets\img\gallery\blog1.png
-wwwroot\assets\img\gallery\blog2.png
 wwwroot\assets\img\gallery\contact_form.png
 wwwroot\assets\img\gallery\dot.png
 wwwroot\assets\img\gallery\footer_bg.png
@@ -61,7 +58,6 @@ wwwroot\assets\img\gallery\gallery1.png
 wwwroot\assets\img\gallery\gallery2.png
 wwwroot\assets\img\gallery\gallery3.png
 wwwroot\assets\img\gallery\gallery4.png
-wwwroot\assets\img\gallery\gallery5.png
 wwwroot\assets\img\gallery\home-blog1.png
 wwwroot\assets\img\gallery\home-blog2.png
 wwwroot\assets\img\gallery\pricing1.png
@@ -190,3 +186,4 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\uploads\profiles\8bf4ef06-9b51-4d5b-8763-1675cacaf3e2.png

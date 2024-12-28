@@ -1,23 +1,37 @@
 ﻿<!-- Views/Admin/Index.cshtml -->
 @model List<Appointment>
-
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
+<!--? Hero Start -->
+<div class="slider-area2">
+    <div class="slider-height2 d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap hero-cap2 pt-70 text-center">
+                        <h2>Admin</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
 <div class="container mt-4">
-    <h2>Admin Panel - Bekleyen Randevular</h2>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Admin Panel - Bekleyen Randevular</h2>
+        <a href="/Account/Logout" class="btn btn-danger">
+            <i class="bi bi-box-arrow-right"></i> Çıkış Yap
+        </a>
+    </div>
 
     <div class="row mb-3">
         <div class="col">
             <a asp-action="Users" class="btn btn-primary">Kullanıcılar</a>
             <a asp-action="Services" class="btn btn-primary">Hizmetler</a>
-            <a asp-action="Appointments" class="btn btn-primary">Tüm Randevular</a>
+            <a asp-action="AllAppointments" class="btn btn-primary">Tüm Randevular</a>
+            <a asp-action="Employees" class="btn btn-primary">Çalışanlar</a>
+            <a asp-action="EmployeePerformance" class="btn btn-info">
+                <i class="fas fa-chart-line"></i> Çalışan Performansı
+            </a>
         </div>
     </div>
 
@@ -58,3 +72,6 @@
         </table>
     </div>
 </div>
+
+<!-- Bootstrap Icons için CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">

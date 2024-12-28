@@ -128,6 +128,195 @@ namespace BarberApplication.Controllers
         }
 
         [Authorize]
+        public async Task<IActionResult> EditProfile()
+        {
+            var userEmail = HttpContext.Session.GetString("SesUsr");
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return RedirectToAction("Login");
+            }
+
+            var user = await _databaseContext.Users.FirstOrDefaultAsync(u => u.Email == userEmail);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var model = new EditProfileViewModel
+            {
+                FullName = user.FullName,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+                ProfilePhotoPath = user.ProfilePhotoPath
+            };
+
+            return View(model);
+        }
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditProfile(EditProfileViewModel model)
+        {
+            // Sadece zorunlu alanların validasyonunu kontrol et
+            if (!ModelState.IsValid)
+            {
+                var passwordErrors = ModelState.Keys
+                    .Where(k => k.Contains("Password"))
+                    .SelectMany(k => ModelState[k].Errors)
+                    .Count();
+
+                // Eğer sadece şifre alanlarında hata varsa ve yeni şifre girilmemişse, bu hataları temizle
+                if (string.IsNullOrEmpty(model.NewPassword) &&
+                    string.IsNullOrEmpty(model.ConfirmNewPassword) &&
+                    ModelState.ErrorCount == passwordErrors)
+                {
+                    ModelState.Clear();
+                }
+                else
+                {
+                    // Diğer alanlarda hata varsa formu tekrar göster
+                    return View(model);
+                }
+            }
+
+            var userEmail = HttpContext.Session.GetString("SesUsr");
+            var user = await _databaseContext.Users.FirstOrDefaultAsync(u => u.Email == userEmail);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            // Mevcut şifreyi kontrol et
+            string saltedPassword = model.CurrentPassword + _configuration.GetValue<string>("AppSettings:MD5Salt");
+            string hashedPassword = saltedPassword.MD5();
+
+            if (hashedPassword != user.PasswordHash)
+            {
+                ModelState.AddModelError("CurrentPassword", "Mevcut şifre yanlış");
+                return View(model);
+            }
+
+            // Email değişikliği varsa kontrol et
+            if (model.Email != user.Email)
+            {
+                if (await _databaseContext.Users.AnyAsync(u => u.Email == model.Email))
+                {
+                    ModelState.AddModelError("Email", "Bu email adresi başka bir kullanıcı tarafından kullanılıyor");
+                    return View(model);
+                }
+            }
+
+            // Bilgileri güncelle
+            user.FullName = model.FullName;
+            user.Email = model.Email;
+            user.PhoneNumber = model.PhoneNumber;
+
+            // Yeni şifre varsa güncelle
+            if (!string.IsNullOrEmpty(model.NewPassword))
+            {
+                string newSaltedPassword = model.NewPassword + _configuration.GetValue<string>("AppSettings:MD5Salt");
+                user.PasswordHash = newSaltedPassword.MD5();
+            }
+
+            await _databaseContext.SaveChangesAsync();
+
+            // Session'ı güncelle
+            HttpContext.Session.SetString("SesUsr", user.Email);
+            HttpContext.Session.SetString("UserFullName", user.FullName);
+
+            TempData["Success"] = "Profil bilgileriniz başarıyla güncellendi.";
+            return RedirectToAction("Profile");
+        }
+
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> UpdateProfilePhoto(IFormFile photo)
+        {
+            if (photo == null || photo.Length == 0)
+            {
+                TempData["Error"] = "Lütfen bir fotoğraf seçin.";
+                return RedirectToAction("EditProfile");
+            }
+
+            var userEmail = HttpContext.Session.GetString("SesUsr");
+            var user = await _databaseContext.Users.FirstOrDefaultAsync(u => u.Email == userEmail);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            // Eski fotoğrafı sil
+            if (!string.IsNullOrEmpty(user.ProfilePhotoPath))
+            {
+                var oldPhotoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", user.ProfilePhotoPath.TrimStart('/'));
+                if (System.IO.File.Exists(oldPhotoPath))
+                {
+                    System.IO.File.Delete(oldPhotoPath);
+                }
+            }
+
+            // Yeni fotoğrafı kaydet
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(photo.FileName)}";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "profiles", fileName);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(path));
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await photo.CopyToAsync(stream);
+            }
+
+            user.ProfilePhotoPath = $"/uploads/profiles/{fileName}";
+            await _databaseContext.SaveChangesAsync();
+
+            TempData["Success"] = "Profil fotoğrafınız başarıyla güncellendi.";
+            return RedirectToAction("EditProfile");
+        }
+
+        [Authorize]
+        public async Task<IActionResult> DeleteProfilePhoto()
+        {
+            var userEmail = HttpContext.Session.GetString("SesUsr");
+            var user = await _databaseContext.Users.FirstOrDefaultAsync(u => u.Email == userEmail);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            if (!string.IsNullOrEmpty(user.ProfilePhotoPath))
+            {
+                // Dosya yolunu düzelt
+                var photoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot",
+                    user.ProfilePhotoPath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
+
+                // Dosya varsa sil
+                if (System.IO.File.Exists(photoPath))
+                {
+                    try
+                    {
+                        System.IO.File.Delete(photoPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Hata logla ama devam et
+                        Console.WriteLine($"Error deleting file: {ex.Message}");
+                    }
+                }
+
+                // Veritabanındaki referansı temizle
+                user.ProfilePhotoPath = null;
+                await _databaseContext.SaveChangesAsync();
+
+                TempData["Success"] = "Profil fotoğrafınız başarıyla silindi.";
+            }
+
+            return RedirectToAction("EditProfile");
+        }
+        [Authorize]
         public IActionResult Profile()
         {
             string? userEmail = HttpContext.Session.GetString("SesUsr");
@@ -157,6 +346,19 @@ namespace BarberApplication.Controllers
             HttpContext.Session.Clear();
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> AdminLogin()
+        {
+            // Eğer normal kullanıcı girişi yapılmışsa, çıkış yap
+            if (User.Identity.IsAuthenticated)
+            {
+                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                return RedirectToAction("Login", "Admin");
+            }
+
+            return RedirectToAction("Login", "Admin");
         }
 
         [Authorize]

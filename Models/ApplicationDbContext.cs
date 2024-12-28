@@ -30,7 +30,11 @@ namespace BarberApplication.Models
             modelBuilder.Entity<Service>().HasMany(s => s.Appointments).WithOne(a => a.Service).HasForeignKey(a => a.ServiceID).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<User>().HasMany(u => u.Appointments).WithOne(a => a.User).HasForeignKey(a => a.UserID).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<EmployeePerformance>()
-                .HasKey(e => e.PerformanceID);
+                .HasOne(ep => ep.Employee)
+                .WithMany(e => e.Performances)
+                .HasForeignKey(ep => ep.EmployeeID)
+                .OnDelete(DeleteBehavior.Cascade);
         }
+
     }
 }

@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Profilim";
 }
+
 <!--? Hero Start -->
 <div class="slider-area2">
     <div class="slider-height2 d-flex align-items-center">
@@ -17,7 +18,7 @@
     </div>
 </div>
 <!-- Hero End -->
-<!-- Hero End -->
+
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-md-8 mx-auto">
@@ -30,7 +31,16 @@
                         <!-- Profil Fotoğrafı -->
                         <div class="col-md-4 text-center mb-4">
                             <div class="profile-img-container">
-                                <img src="~/assets/img/logo/loder.png" class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;" />
+                                @if (!string.IsNullOrEmpty(Model.ProfilePhotoPath))
+                                {
+                                    <img src="@Model.ProfilePhotoPath" class="rounded-circle img-fluid"
+                                         style="width: 150px; height: 150px; object-fit: cover;" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/img/logo/loder.png" class="rounded-circle img-fluid"
+                                         style="width: 150px; height: 150px; object-fit: cover;" />
+                                }
                             </div>
                         </div>
 
@@ -47,13 +57,13 @@
                             </div>
 
                             <div class="info-group mb-3">
-                                <label class="text-muted">Üyelik Tarihi</label>
-                                <h5>@Model.RegistrationDate.ToString("dd MMMM yyyy")</h5>
+                                <label class="text-muted">Telefon</label>
+                                <h5>@(string.IsNullOrEmpty(Model.PhoneNumber) ? "Belirtilmemiş" : Model.PhoneNumber)</h5>
                             </div>
 
                             <div class="info-group mb-3">
-                                <label class="text-muted">Hesap Türü</label>
-                                <h5>@Model.Role</h5>
+                                <label class="text-muted">Üyelik Tarihi</label>
+                                <h5>@Model.RegistrationDate.ToString("dd MMMM yyyy")</h5>
                             </div>
                         </div>
                     </div>
@@ -71,6 +81,7 @@
                                             <th>Hizmet</th>
                                             <th>Berber</th>
                                             <th>Durum</th>
+                                            <th>İşlemler</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -79,21 +90,49 @@
                                             <tr>
                                                 <td>@appointment.AppointmentDateTime.ToString("dd.MM.yyyy HH:mm")</td>
                                                 <td>@appointment.Service?.ServiceName</td>
-                                                <td>@appointment.Employee?.EmployeeID</td>
+                                                <td>@appointment.Employee?.Name</td>
                                                 <td>
-                                                    @if (appointment.AppointmentDateTime > DateTime.Now)
+                                                    @switch (appointment.Status)
                                                     {
-                                                        <span class="badge badge-primary">Bekliyor</span>
+                                                        case AppointmentStatus.Pending:
+                                                            <span class="badge badge-warning">Beklemede</span>
+                                                            break;
+                                                        case AppointmentStatus.Approved:
+                                                            <span class="badge badge-success">Onaylandı</span>
+                                                            break;
+                                                        case AppointmentStatus.Rejected:
+                                                            <span class="badge badge-danger">Reddedildi</span>
+                                                            break;
+                                                        case AppointmentStatus.Cancelled:
+                                                            <span class="badge badge-secondary">İptal Edildi</span>
+                                                            break;
+                                                        case AppointmentStatus.Completed:
+                                                            <span class="badge badge-info">Tamamlandı</span>
+                                                            break;
                                                     }
-                                                    else
+                                                </td>
+                                                <td>
+                                                    @if (appointment.Status == AppointmentStatus.Pending ||
+                                                   appointment.Status == AppointmentStatus.Approved)
                                                     {
-                                                        <span class="badge badge-success">Tamamlandı</span>
+                                                        <a asp-controller="Appointments"
+                                                           asp-action="CancelAppointment"
+                                                           asp-route-id="@appointment.AppointmentID"
+                                                           class="btn btn-danger btn-sm"
+                                                           onclick="return confirm('Randevuyu iptal etmek istediğinizden emin misiniz?')">
+                                                            <i class="fas fa-times"></i> İptal Et
+                                                        </a>
                                                     }
                                                 </td>
                                             </tr>
                                         }
                                     </tbody>
                                 </table>
+                            </div>
+                            <div class="text-right">
+                                <a asp-controller="Account" asp-action="Appointments" class="btn btn-link">
+                                    Tüm Randevularım <i class="fas fa-arrow-right"></i>
+                                </a>
                             </div>
                         }
                         else
@@ -106,9 +145,6 @@
                     <div class="mt-4">
                         <a asp-controller="Account" asp-action="EditProfile" class="btn btn-primary">
                             <i class="fas fa-edit"></i> Profili Düzenle
-                        </a>
-                        <a asp-controller="Account" asp-action="ChangePassword" class="btn btn-warning">
-                            <i class="fas fa-key"></i> Şifre Değiştir
                         </a>
                         <a asp-controller="Appointment" asp-action="Create" class="btn btn-success">
                             <i class="fas fa-calendar-plus"></i> Yeni Randevu
@@ -124,15 +160,18 @@
     .info-group label {
         font-size: 0.9rem;
         margin-bottom: 0.2rem;
+        color: #666;
     }
 
     .info-group h5 {
         margin-bottom: 1rem;
         color: #333;
+        font-weight: 500;
     }
 
     .badge {
         padding: 0.5em 1em;
+        font-weight: 500;
     }
 
     .card {
@@ -141,6 +180,7 @@
 
     .btn {
         margin-right: 10px;
+        padding: 8px 20px;
     }
 
     .profile-img-container {
@@ -150,11 +190,16 @@
 
     .table th {
         background-color: #f8f9fa;
+        border-top: none;
     }
 
-    .badge-primary {
-        background-color: #007bff;
-        color: white;
+    .table td {
+        vertical-align: middle;
+    }
+
+    .badge-warning {
+        background-color: #ffc107;
+        color: #000;
     }
 
     .badge-success {
@@ -162,16 +207,45 @@
         color: white;
     }
 
+    .badge-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .badge-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+
+    .badge-info {
+        background-color: #17a2b8;
+        color: white;
+    }
+
     .profile-card {
         border: none;
         border-radius: 10px;
-        box-shadow: 0 0 20px white;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
 
     .profile-header {
-        background-color: rgba(0,0,0,0.1);
+        background-color: #1f1f1f;
         color: white;
         padding: 20px;
         border-radius: 10px 10px 0 0;
     }
+
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .btn-link {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
 </style>

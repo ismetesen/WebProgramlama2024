@@ -23,55 +23,19 @@ namespace BarberApplication.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAvailableTimeSlots(int employeeId, int serviceId, DateTime date)
+        private async Task<bool> IsTimeSlotAvailable(int employeeId, DateTime startTime, int duration)
         {
-            try
-            {
-                var employee = await _context.Employees.FindAsync(employeeId);
-                var service = await _context.Services.FindAsync(serviceId);
+            var endTime = startTime.AddMinutes(duration);
 
-                if (employee == null || service == null)
-                {
-                    return Json(new List<string>());
-                }
+            var conflictingAppointments = await _context.Appointments
+                .Include(a => a.Service)
+                .Where(a => a.EmployeeID == employeeId &&
+                           ((a.AppointmentDateTime <= startTime && a.AppointmentDateTime.AddMinutes(a.Service.Duration) > startTime) ||
+                            (a.AppointmentDateTime < endTime && a.AppointmentDateTime.AddMinutes(a.Service.Duration) >= endTime) ||
+                            (a.AppointmentDateTime >= startTime && a.AppointmentDateTime.AddMinutes(a.Service.Duration) <= endTime)))
+                .AnyAsync();
 
-                var workStartTime = new TimeSpan(9, 0, 0);
-                var workEndTime = new TimeSpan(18, 0, 0);
-
-                // Onaylanmış randevuları al
-                var existingAppointments = await _context.Appointments
-                    .Include(a => a.Service)
-                    .Where(a => a.EmployeeID == employeeId &&
-                               a.AppointmentDateTime.Date == date.Date &&
-                               (a.Status == AppointmentStatus.Approved ||
-                                a.Status == AppointmentStatus.Pending))
-                    .ToListAsync();
-
-                var availableSlots = new List<string>();
-                var currentTime = workStartTime;
-
-                while (currentTime.Add(TimeSpan.FromMinutes(service.Duration)) <= workEndTime)
-                {
-                    var slotStartTime = date.Date.Add(currentTime);
-                    var slotEndTime = slotStartTime.AddMinutes(service.Duration);
-
-                    if ((date.Date != DateTime.Today || currentTime > DateTime.Now.TimeOfDay) &&
-                        !existingAppointments.Any(a =>
-                            (a.AppointmentDateTime < slotEndTime &&
-                             a.AppointmentDateTime.AddMinutes(a.Service.Duration) > slotStartTime)))
-                    {
-                        availableSlots.Add(currentTime.ToString(@"hh\:mm"));
-                    }
-
-                    currentTime = currentTime.Add(TimeSpan.FromMinutes(30));
-                }
-
-                return Json(availableSlots);
-            }
-            catch (Exception ex)
-            {
-                return Json(new List<string>());
-            }
+            return !conflictingAppointments;
         }
 
         [HttpPost]
@@ -106,13 +70,22 @@ namespace BarberApplication.Controllers
                     return View(model);
                 }
 
-                // Randevu çakışması kontrolü
-                var isSlotAvailable = await IsTimeSlotAvailable(model.EmployeeID,
-                                                              model.AppointmentDateTime,
-                                                              service.Duration);
-                if (!isSlotAvailable)
+                var appointmentTime = model.AppointmentDateTime;
+                var appointmentTimeOfDay = appointmentTime.TimeOfDay;
+                var startHour = new TimeSpan(9, 0, 0); // 09:00
+                var endHour = new TimeSpan(18, 0, 0);  // 18:00
+
+                if (appointmentTimeOfDay < startHour || appointmentTimeOfDay >= endHour)
                 {
-                    ModelState.AddModelError("", "Seçilen zaman dilimi artık müsait değil.");
+                    ModelState.AddModelError("", "Lütfen 09:00 - 18:00 saatleri arasında bir randevu seçin.");
+                    ViewBag.Employees = _context.Employees.ToList();
+                    ViewBag.Services = _context.Services.ToList();
+                    return View(model);
+                }
+
+                if (!await IsTimeSlotAvailable(model.EmployeeID, model.AppointmentDateTime, service.Duration))
+                {
+                    ModelState.AddModelError("", "Seçilen zaman diliminde berber müsait değil. Lütfen başka bir zaman seçin.");
                     ViewBag.Employees = _context.Employees.ToList();
                     ViewBag.Services = _context.Services.ToList();
                     return View(model);
@@ -126,40 +99,51 @@ namespace BarberApplication.Controllers
                     CustomerName = user.FullName ?? "İsimsiz Müşteri",
                     TotalPrice = service.Price,
                     UserID = user.UserID,
-                    Status = AppointmentStatus.Pending,
-                    CreatedAt = DateTime.Now
+                    User = user,
+                    Service = service,
+                    Employee = employee
                 };
 
                 _context.Appointments.Add(appointment);
                 await _context.SaveChangesAsync();
 
-                TempData["Success"] = "Randevunuz oluşturuldu ve onay bekliyor.";
+                TempData["Success"] = "Randevunuz başarıyla oluşturuldu.";
                 return RedirectToAction("Appointments", "Account");
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("", "Randevu oluşturulurken bir hata oluştu.");
+                ModelState.AddModelError("", $"Randevu oluşturulurken bir hata oluştu: {ex.Message}");
+                if (ex.InnerException != null)
+                {
+                    ModelState.AddModelError("", $"Detay: {ex.InnerException.Message}");
+                }
+
                 ViewBag.Employees = _context.Employees.ToList();
                 ViewBag.Services = _context.Services.ToList();
                 return View(model);
             }
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public async Task<IActionResult> CancelAppointment(int id)
         {
-            var userEmail = HttpContext.Session.GetString("SesUsr");
             var appointment = await _context.Appointments
                 .Include(a => a.User)
-                .FirstOrDefaultAsync(a => a.AppointmentID == id &&
-                                        a.User.Email == userEmail);
+                .FirstOrDefaultAsync(a => a.AppointmentID == id);
 
             if (appointment == null)
             {
                 return NotFound();
             }
 
+            // Kullanıcının kendi randevusunu iptal ettiğinden emin ol
+            var userEmail = HttpContext.Session.GetString("SesUsr");
+            if (string.IsNullOrEmpty(userEmail) || appointment.User.Email != userEmail)
+            {
+                return Forbid();
+            }
+
+            // Randevunun iptal edilebilir olup olmadığını kontrol et
             if (appointment.AppointmentDateTime <= DateTime.Now)
             {
                 TempData["Error"] = "Geçmiş randevular iptal edilemez.";
@@ -172,21 +156,26 @@ namespace BarberApplication.Controllers
             TempData["Success"] = "Randevunuz başarıyla iptal edildi.";
             return RedirectToAction("Appointments", "Account");
         }
-
-        private async Task<bool> IsTimeSlotAvailable(int employeeId, DateTime startTime, int duration)
+        [HttpPost, ActionName("CancelAppointment")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CancelAppointmentConfirmed(int id)
         {
-            var endTime = startTime.AddMinutes(duration);
+            var appointment = await _context.Appointments.FindAsync(id);
+            if (appointment != null)
+            {
+                // Kullanıcının kendi randevusunu iptal ettiğinden emin ol
+                var userIdString = HttpContext.Session.GetString("UserID");
+                if (!int.TryParse(userIdString, out int userId) || appointment.UserID != userId)
+                {
+                    return Forbid();
+                }
 
-            return !await _context.Appointments
-                .AnyAsync(a => a.EmployeeID == employeeId &&
-                              a.Status != AppointmentStatus.Cancelled &&
-                              a.Status != AppointmentStatus.Rejected &&
-                              ((a.AppointmentDateTime <= startTime &&
-                                a.AppointmentDateTime.AddMinutes(a.Service.Duration) > startTime) ||
-                               (a.AppointmentDateTime < endTime &&
-                                a.AppointmentDateTime.AddMinutes(a.Service.Duration) >= endTime) ||
-                               (a.AppointmentDateTime >= startTime &&
-                                a.AppointmentDateTime.AddMinutes(a.Service.Duration) <= endTime)));
+                appointment.Status = AppointmentStatus.Cancelled;
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Randevunuz başarıyla iptal edildi.";
+            }
+
+            return RedirectToAction("Appointments", "Account");
         }
     }
 }

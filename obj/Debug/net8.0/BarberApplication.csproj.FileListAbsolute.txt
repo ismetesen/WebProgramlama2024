@@ -1304,3 +1304,6 @@ C:\Users\binad\Desktop\nkvdenb\WebProgramlama2024\WebProgramlama2024\obj\Debug\n
 C:\Users\binad\Desktop\nkvdenb\WebProgramlama2024\WebProgramlama2024\obj\Debug\net8.0\BarberApplication.pdb
 C:\Users\binad\Desktop\nkvdenb\WebProgramlama2024\WebProgramlama2024\obj\Debug\net8.0\BarberApplication.genruntimeconfig.cache
 C:\Users\binad\Desktop\nkvdenb\WebProgramlama2024\WebProgramlama2024\obj\Debug\net8.0\ref\BarberApplication.dll
+C:\Users\binad\Desktop\nkvdenb\WebProgramlama2024\WebProgramlama2024\bin\Debug\net8.0\Microsoft.Azure.CognitiveServices.Vision.Face.dll
+C:\Users\binad\Desktop\nkvdenb\WebProgramlama2024\WebProgramlama2024\bin\Debug\net8.0\Microsoft.Rest.ClientRuntime.dll
+C:\Users\binad\Desktop\nkvdenb\WebProgramlama2024\WebProgramlama2024\bin\Debug\net8.0\Microsoft.Rest.ClientRuntime.Azure.dll

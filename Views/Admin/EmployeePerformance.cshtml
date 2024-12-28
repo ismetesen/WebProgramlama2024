@@ -1,0 +1,162 @@
+﻿@model List<EmployeePerformanceViewModel>
+<!--? Hero Start -->
+<div class="slider-area2">
+    <div class="slider-height2 d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap hero-cap2 pt-70 text-center">
+                        <h2>Çalışan İstatistikleri</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <h3 class="mb-0">Çalışan Performans Raporu</h3>
+            <button class="btn btn-success" data-toggle="modal" data-target="#addPerformanceModal">
+                <i class="fas fa-plus"></i> Yeni Performans Ekle
+            </button>
+        </div>
+        <div class="card-body">
+            <!-- Özet Kartları -->
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="card bg-info text-white">
+                        <div class="card-body">
+                            <h6>Toplam Randevu</h6>
+                            <h3>@ViewBag.TotalAppointments</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <h6>Toplam Gelir</h6>
+                            <h3>@ViewBag.TotalIncome.ToString("C2")</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-warning text-white">
+                        <div class="card-body">
+                            <h6>Ortalama Verimlilik</h6>
+                            <h3>%@ViewBag.AverageEfficiency.ToString("F2")</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-primary text-white">
+                        <div class="card-body">
+                            <h6>En Verimli Çalışan</h6>
+                            <h3>@ViewBag.BestEmployee</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @if (!Model.Any())
+            {
+                <div class="alert alert-info">
+                    Henüz performans kaydı bulunmamaktadır.
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover" id="performanceTable">
+                        <thead>
+                            <tr>
+                                <th>Çalışan</th>
+                                <th>Tarih</th>
+                                <th>Randevu Sayısı</th>
+                                <th>Toplam Gelir</th>
+                                <th>Verimlilik</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.EmployeeName</td>
+                                    <td>@item.Date.ToString("dd.MM.yyyy")</td>
+                                    <td>@item.TotalAppointments</td>
+                                    <td>@item.TotalIncome.ToString("C2")</td>
+                                    <td>
+                                        <div class="progress">
+                                            <div class="progress-bar @GetProgressBarClass(item.EfficiencyScore)"
+                                                 role="progressbar"
+                                                 style="width: @item.EfficiencyScore%">
+                                                %@item.EfficiencyScore.ToString("F2")
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Performans Ekleme Modalı -->
+<div class="modal fade" id="addPerformanceModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Yeni Performans Ekle</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form asp-action="AddPerformance" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Çalışan</label>
+                        <select name="employeeId" class="form-control" required>
+                            <option value="">Seçiniz...</option>
+                            @foreach (var employee in ViewBag.Employees)
+                            {
+                                <option value="@employee.Value">@employee.Text</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('#performanceTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Turkish.json"
+                },
+                "order": [[1, "desc"]]
+            });
+        });
+    </script>
+}
+
+@functions {
+    string GetProgressBarClass(decimal score)
+    {
+        return score switch
+        {
+            var n when n >= 90 => "bg-success",
+            var n when n >= 70 => "bg-info",
+            var n when n >= 50 => "bg-warning",
+            _ => "bg-danger"
+        };
+    }
+}
